@@ -1,0 +1,45 @@
+#!/bin/bash -ex
+
+rm -rf /tmp/*
+mkdir -p /tmp
+chmod 777 /tmp
+
+apt-get update -y
+apt-get upgrade -y
+apt-get install -y \
+exa ncdu exuberant-ctags asciinema man \
+tzdata sudo tmux openssh-client libpq-dev \
+rsync mlocate gist less util-linux apt-utils \
+htop cron postgresql-client bsdmainutils \
+direnv iputils-ping dstat zstd pixz jq git-extras \
+aptitude clang-format p7zip-full openssh-server
+yes | unminimize
+
+ldconfig
+
+mkdir -p /var/log/supervisor
+mkdir -p /var/run/sshd
+
+ssh_ed25519=/root/.ssh/id_ed25519
+if [ ! -f "$ssh_ed25519" ]; then
+ssh-keygen -t ed25519 -P "" -f $ssh_ed25519
+fi
+
+rsync -av /init/ / 
+
+sed -i "s/#ClientAliveInterval 0/ClientAliveInterval 60/g" /etc/ssh/sshd_config
+sed -i "s/#ClientAliveCountMax 3/ClientAliveCountMax 3/g" /etc/ssh/sshd_config
+service sshd reload
+
+chmod 600 /root/.ssh/*
+chmod 644 /root/.ssh/*.pub > /dev/null 2>&1
+touch /root/.ssh/authorized_keys
+chmod 644 /root/.ssh/authorized_keys
+touch /root/.ssh/known_hosts
+chmod 644 /root/.ssh/known_hosts
+chmod 755 /root/.ssh
+rcLocal=$(cat /etc/_rc.local)
+mv /etc/_rc.local /etc/rc.local
+updatedb > /dev/null 2>&1 &
+exec bash -c $rcLocal
+

@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+branch=`git branch 2> /dev/null | sed -e '/^[^*]/d' |awk -F' ' '{print $2}'`
+
+git add --update :/ && git commit -m "♨" 
+
+git pull origin $branch
+
+branch=`git branch|awk '{print $2}'`
+
+git pull origin $branch
+
+git merge $branch
+
+git push --recurse-submodules=on-demand --tag --set-upstream origin $branch 
+

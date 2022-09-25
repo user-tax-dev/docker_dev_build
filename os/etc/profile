@@ -1,0 +1,16 @@
+umask 022
+export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/sbin:/bin:/opt/bun/bin
+
+export BUN_INSTALL=/opt/bun
+export RUSTUP_HOME=/opt/rust
+export CARGO_HOME=/opt/rust
+export GOPATH=/usr
+export PAGER=bat
+
+export ASDF_DIR=/opt/asdf
+export ASDF_DATA_DIR=$ASDF_DIR
+. $ASDF_DIR/asdf.sh
+
+. /opt/rust/env
+
+/etc/run_dir.sh /etc/profile.d

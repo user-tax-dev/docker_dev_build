@@ -1,0 +1,6 @@
+RUN rm -rf /root
+
+#FROM ubuntu
+#COPY --from=build / /
+
+CMD ["/etc/rc.local"]

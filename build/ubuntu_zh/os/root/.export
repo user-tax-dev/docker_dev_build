@@ -1,0 +1,7 @@
+export BUN_CONFIG_REGISTRY=http://mirrors.cloud.tencent.com/npm/
+export ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
+export GOPROXY=https://goproxy.cn,https://mirrors.aliyun.com/goproxy/,direct
+export PYTHON_BUILD_MIRROR_URL="https://npm.taobao.org/mirrors/python/"
+export PYTHON_BUILD_MIRROR_URL_SKIP_CHECKSUM=1
+export RUSTUP_DIST_SERVER="https://rsproxy.cn"
+export RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"

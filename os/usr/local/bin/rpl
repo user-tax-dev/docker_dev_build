@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+sd "$@" $(fd --type file --hidden --exclude .git)
