@@ -9,6 +9,6 @@ apt install -y mercurial cmake ninja-build g++ golang libunwind-dev libpcre3-dev
 cp nginx.service /lib/systemd/system/
 systemctl daemon-reload
 
-if ! [ -x "$(command -v nginx)" ]; then
+if [ -x "$(command -v nginx)" ]; then
 systemctl enable nginx --now
 fi
