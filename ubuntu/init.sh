@@ -208,6 +208,7 @@ systemctl restart rsyslog
 
 timedatectl set-ntp true
 systemctl enable --now systemd-timesyncd
+systemctl enable --now zram-config
 
 ipinfo=$(curl -s ipinfo.io)
 
