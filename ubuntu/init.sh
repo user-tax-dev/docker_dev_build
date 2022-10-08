@@ -26,7 +26,7 @@ export TZ=Asia/Shanghai
 cd ~
 
 apt-get update &&\
-apt-get install -y tzdata language-pack-zh-hans
+apt-get install -y tzdata language-pack-zh-hans zram-config
 
 ln -snf /usr/share/zoneinfo/$TZ /etc/localtime &&\
 echo $TZ > /etc/timezone &&\
@@ -253,7 +253,5 @@ cargo-cache -e
 sed -i "s/#ClientAliveInterval 0/ClientAliveInterval 60/g" /etc/ssh/sshd_config
 sed -i "s/#ClientAliveCountMax 3/ClientAliveCountMax 3/g" /etc/ssh/sshd_config
 service sshd reload
-
-echo zram > /etc/modules-load.d/zram.conf
 
 echo '👌 ✅'
