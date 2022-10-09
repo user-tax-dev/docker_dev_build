@@ -32,6 +32,24 @@ apt-get install -y tzdata language-pack-zh-hans zram-config
 sd '^echo \$mem' 'echo zstd > /sys/block/zram0/comp_algorithm ; echo $$mem' /usr/bin/init-zram-swapping
 systemctl enable --now zram-config
 
+sysctl_conf=/etc/sysctl.conf
+
+if ! grep -q "vm.page-cluster" "$sysctl_conf"; then
+echo -e "\nvm.page-cluster=0\n" >> $sysctl_conf
+fi
+
+if ! grep -q "vm.extfrag_threshold" "$sysctl_conf"; then
+echo -e "\nvm.extfrag_threshold=0\n" >> $sysctl_conf
+fi
+
+if ! grep -q "vm.swappiness" "$sysctl_conf"; then
+echo -e "\nvm.swappiness=100\n" >> $sysctl_conf
+fi
+
+sysctl vm.page-cluster=0
+sysctl vm.extfrag_threshold=0
+sysctl vm.swappiness=100
+
 ln -snf /usr/share/zoneinfo/$TZ /etc/localtime &&\
 echo $TZ > /etc/timezone &&\
 locale-gen zh_CN.UTF-8
