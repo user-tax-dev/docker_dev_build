@@ -45,6 +45,8 @@ sysctl_set page-cluster 0
 sysctl_set extfrag_threshold 0
 sysctl_set swappiness 100
 
+sed -i '/^[[:space:]]*$/d' $sysctl_conf
+
 ln -snf /usr/share/zoneinfo/$TZ /etc/localtime &&\
 echo $TZ > /etc/timezone &&\
 locale-gen zh_CN.UTF-8
