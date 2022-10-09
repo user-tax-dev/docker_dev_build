@@ -29,7 +29,7 @@ cd ~
 apt-get update &&\
 apt-get install -y tzdata language-pack-zh-hans zram-config
 
-sd '^echo \$mem' 'echo zstd > /sys/block/zram0/comp_algorithm ; echo $mem' /usr/bin/init-zram-swapping
+sd '^echo \$mem' 'echo zstd > /sys/block/zram0/comp_algorithm ; echo $$mem' /usr/bin/init-zram-swapping
 systemctl enable --now zram-config
 
 ln -snf /usr/share/zoneinfo/$TZ /etc/localtime &&\
