@@ -28,6 +28,9 @@ cd ~
 apt-get update &&\
 apt-get install -y tzdata language-pack-zh-hans zram-config
 
+sd '^echo \$mem' 'echo zstd > /sys/block/zram0/comp_algorithm ; echo $mem' /usr/bin/init-zram-swapping
+systemctl enable --now zram-config
+
 ln -snf /usr/share/zoneinfo/$TZ /etc/localtime &&\
 echo $TZ > /etc/timezone &&\
 locale-gen zh_CN.UTF-8
@@ -208,7 +211,6 @@ systemctl restart rsyslog
 
 timedatectl set-ntp true
 systemctl enable --now systemd-timesyncd
-systemctl enable --now zram-config
 
 ipinfo=$(curl -s ipinfo.io)
 
