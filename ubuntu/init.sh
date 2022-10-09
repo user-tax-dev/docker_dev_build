@@ -4,6 +4,7 @@ DIR=$(dirname $(realpath "$0"))
 ROOT=$(dirname $DIR)
 cd $DIR
 set -ex
+export DEBIAN_FRONTEND=noninteractive
 
 CURL="curl --connect-timeout 5 --max-time 10 --retry 99 --retry-delay 0"
 
