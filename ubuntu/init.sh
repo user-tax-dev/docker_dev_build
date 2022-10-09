@@ -34,21 +34,16 @@ systemctl enable --now zram-config
 
 sysctl_conf=/etc/sysctl.conf
 
-if ! grep -q "vm.page-cluster" "$sysctl_conf"; then
-echo -e "\nvm.page-cluster=0\n" >> $sysctl_conf
+sysctl_set(){
+if ! grep -q "vm.$1" "$sysctl_conf"; then
+echo -e "\nvm.$1=$2\n" >> $sysctl_conf
 fi
+sysctl vm.$1=$2
+}
 
-if ! grep -q "vm.extfrag_threshold" "$sysctl_conf"; then
-echo -e "\nvm.extfrag_threshold=0\n" >> $sysctl_conf
-fi
-
-if ! grep -q "vm.swappiness" "$sysctl_conf"; then
-echo -e "\nvm.swappiness=100\n" >> $sysctl_conf
-fi
-
-sysctl vm.page-cluster=0
-sysctl vm.extfrag_threshold=0
-sysctl vm.swappiness=100
+sysctl_set page-cluster 0
+sysctl_set extfrag_threshold 0
+sysctl_set swappiness 100
 
 ln -snf /usr/share/zoneinfo/$TZ /etc/localtime &&\
 echo $TZ > /etc/timezone &&\
