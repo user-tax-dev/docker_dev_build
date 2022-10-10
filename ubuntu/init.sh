@@ -153,8 +153,6 @@ npm install -g yarn pnpm
 
 asdf reshim
 
-yarn config set prefix ~/.yarn
-
 yarn global add neovim npm-check-updates coffeescript node-pre-gyp \
 diff-so-fancy rome@next @antfu/ni prettier \
 @prettier/plugin-pug stylus-supremacy &
