@@ -270,5 +270,5 @@ cargo-cache -e
 sed -i "s/#ClientAliveInterval 0/ClientAliveInterval 60/g" /etc/ssh/sshd_config
 sed -i "s/#ClientAliveCountMax 3/ClientAliveCountMax 3/g" /etc/ssh/sshd_config
 service sshd reload
-
+apt autoremove -y
 echo '👌 ✅'
