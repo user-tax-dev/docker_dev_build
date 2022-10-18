@@ -391,7 +391,7 @@ autocmd BufWritePost *.{js,mjs} :silent! !rome format --write %
 autocmd BufWritePost *.{js,mjs} :edit
 autocmd BufWritePost *.{js,mjs} :redraw!
 
-autocmd BufWritePost *.sql :silent! !pg_format -s 2 -w 999 -i %
+autocmd BufWritePost *.sql :silent! !pg_format -s 2 -W 999 -w 999 -i %
 autocmd BufWritePost *.sql :edit
 autocmd BufWritePost *.sql :redraw!
 
