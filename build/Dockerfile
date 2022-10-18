@@ -77,6 +77,7 @@ diff-so-fancy pnpm rome@next @antfu/ni prettier \
 RUN \
 . /opt/asdf/asdf.sh &&\
 asdf reshim &&\
+go install mvdan.cc/sh/cmd/shfmt@latest &&\
 go install github.com/muesli/duf@master &&\
 go install github.com/louisun/heyspace@latest
 

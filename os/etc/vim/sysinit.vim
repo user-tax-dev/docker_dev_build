@@ -380,13 +380,13 @@ nmap mr :MRU<cr>
 "autocmd BufWritePre *.py :%s/^\(\s*print\)\s\+\(.*\)/\1(\2)/e
 autocmd BufWritePre *.{lua,md,svelte,vue,ls,cpp,c,d,rs,slm,coffee,conf,html,sh,scss,css,xsh,styl} :%s/\t/  /ge
 autocmd BufWritePre *.{lua,toml,svelte,zsh,txt,cpp,c,d,rs,slm,coffee,conf,html,sh,scss,css,vue,sass,xsh,styl} :%s/\s\+$//e
-au BufWritePre *.{h,cpp,c,v,proto,json,go,html,scss,css,dart,toml,rs,pug,py,lua} :Autoformat
 autocmd FileType vue syntax sync fromstart
 autocmd BufWritePre *.vue :syntax sync fromstart
 autocmd BufWritePost *.{md} :silent! !heyspace -i % -b /tmp -q
 autocmd BufWritePost *.{md} :edit
 autocmd BufWritePost *.{md} :redraw!
 
+au BufWritePre *.{sh,h,cpp,c,v,proto,json,go,html,scss,css,dart,toml,rs,pug,py,lua} :Autoformat
 autocmd BufWritePost *.{js,mjs} :silent! !rome format --write %
 autocmd BufWritePost *.{js,mjs} :edit
 autocmd BufWritePost *.{js,mjs} :redraw!
