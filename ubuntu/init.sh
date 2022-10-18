@@ -58,7 +58,7 @@ apt-get update &&
   apt-get upgrade -y &&
   apt-get dist-upgrade -y &&
   apt-get install -y unzip gcc build-essential musl-tools g++ git bat \
-    libffi-dev zlib1g-dev liblzma-dev libssl-dev pkg-config \
+    libffi-dev zlib1g-dev liblzma-dev libssl-dev pkg-config pgformatter \
     libreadline-dev libbz2-dev libsqlite3-dev \
     libzstd-dev protobuf-compiler zsh \
     software-properties-common curl wget cmake \

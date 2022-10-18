@@ -391,6 +391,10 @@ autocmd BufWritePost *.{js,mjs} :silent! !rome format --write %
 autocmd BufWritePost *.{js,mjs} :edit
 autocmd BufWritePost *.{js,mjs} :redraw!
 
+autocmd BufWritePost *.sql :silent! !pg_format -i %
+autocmd BufWritePost *.sql :edit
+autocmd BufWritePost *.sql :redraw!
+
 let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint']
 let g:vue_pre_processors = ['pug','coffee','stylus','styl']
 let g:coc_node_path="$HOME/.asdf/shims/node"

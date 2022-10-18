@@ -7,7 +7,7 @@ ENV TERM xterm-256color
 RUN apt-get update &&\
 apt-get upgrade -y &&\
 apt-get dist-upgrade -y &&\
-apt-get install -y unzip build-essential musl-tools g++ git bat \
+apt-get install -y unzip build-essential musl-tools g++ git bat pgformatter \
 libffi-dev zlib1g-dev liblzma-dev libssl-dev pkg-config \
 libreadline-dev libbz2-dev libsqlite3-dev \
 libzstd-dev protobuf-compiler zsh \
