@@ -217,8 +217,8 @@ cd /
 rsync -avI $ROOT/os/ /
 rsync -avI $DIR/os/ /
 
-useradd -s /usr/sbin/nologin -M napi-rs
-systemctl daemon-reload
+useradd -s /usr/sbin/nologin -M ntpd-rs
+systemctl daemon-reload && systemctl daemon-reexec
 systemctl enable --now ntpd-rs
 
 # 对时服务

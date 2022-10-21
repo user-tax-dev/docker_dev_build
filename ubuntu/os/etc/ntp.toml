@@ -1,19 +1,9 @@
-# Other values include trace, debug, warn and error
 log-filter = "info"
 
-# Peers can be configured as a simple list (pool servers from ntppool.org)
-peers = ["0.pool.ntp.org", "1.pool.ntp.org", "2.pool.ntp.org", "3.pool.ntp.org"]
+peers = ["ntp.aliyun.com", "ntp.tencent.com", "ntp.ubuntu.com", "asia.pool.ntp.org","time.windows.com","ntp.ntsc.ac.cn","time.cloudflare.com"]
 
-# Or by providing written out configuration
-# [[peers]]
-# addr = "0.pool.ntp.org:123"
-
-# [[peers]]
-# addr = "1.pool.ntp.org:123"
-
-# System parameters used in filtering and steering the clock:
 [system]
-min-intersection-survivors = 1
+min-intersection-survivors = 3
 min-cluster-survivors = 3
 frequency-tolerance = 15
 distance-threshold = 1
