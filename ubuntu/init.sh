@@ -217,12 +217,14 @@ cd /
 rsync -avI $ROOT/os/ /
 
 # 对时服务
-apt install -y systemd-timesyncd
+#apt install -y systemd-timesyncd
 
-cat >/etc/systemd/timesyncd.conf <<EOF
-[Time]
-NTP=ntp.tencent.com ntp.aliyun.com ntp.ubuntu.com time.google.com time.windows.com ntp.ntsc.ac.cn
-EOF
+#cat >/etc/systemd/timesyncd.conf <<EOF
+#[Time]
+#NTP=ntp.tencent.com ntp.aliyun.com ntp.ubuntu.com time.google.com time.windows.com ntp.ntsc.ac.cn
+#EOF
+#timedatectl set-ntp true
+#systemctl enable --now systemd-timesyncd
 
 # 内存小于1GB不装 docker
 mesize=$(cat /proc/meminfo | grep -oP '^MemTotal:\s+\K\d+' /proc/meminfo)
@@ -231,8 +233,6 @@ mesize=$(cat /proc/meminfo | grep -oP '^MemTotal:\s+\K\d+' /proc/meminfo)
 sd -s "#cron.*" "cron.*" /etc/rsyslog.d/50-default.conf
 systemctl restart rsyslog
 
-timedatectl set-ntp true
-systemctl enable --now systemd-timesyncd
 
 ipinfo=$(curl -s ipinfo.io)
 
