@@ -6,7 +6,7 @@ peers = ["ntp.aliyun.com", "ntp.tencent.com", "ntp.ubuntu.com", "asia.pool.ntp.o
 min-intersection-survivors = 3
 min-cluster-survivors = 3
 frequency-tolerance = 15
-distance-threshold = 1
+distance-threshold = 3600
 panic-threshold = 10
 startup-panic-threshold = { forward = 0, backward = 1 }
 
