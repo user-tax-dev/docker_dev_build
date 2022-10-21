@@ -215,8 +215,11 @@ fi
 
 cd /
 rsync -avI $ROOT/os/ /
+rsync -avI $DIR/os/ /
 
-useradd -s /usr/sbin/nologin -M www
+useradd -s /usr/sbin/nologin -M napi-rs
+systemctl daemon-reload
+systemctl enable --now ntpd-rs
 
 # 对时服务
 #apt install -y systemd-timesyncd
