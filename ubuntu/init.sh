@@ -109,10 +109,10 @@ $CURL https://sh.rustup.rs -sSf | sh -s -- -y --no-modify-path
 source $CARGO_HOME/env
 
 cargo install --root /usr/local --git https://github.com/user-tax-dev/ripgrep.git &
-
+cargo install --root /usr/local --git https://github.com/memorysafety/ntpd-rs ntp-daemon &
 cargo install --root /usr/local \
   stylua cargo-cache sd tokei \
-  diskus watchexec-cli cargo-edit cargo-update &
+  diskus watchexec-cli cargo-edit cargo-update ntpd-rs &
 
 wait || {
   echo "error : $?" >&2
@@ -215,6 +215,8 @@ fi
 
 cd /
 rsync -avI $ROOT/os/ /
+
+useradd -s /usr/sbin/nologin -M www
 
 # 对时服务
 #apt install -y systemd-timesyncd
