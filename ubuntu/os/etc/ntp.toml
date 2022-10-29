@@ -8,5 +8,4 @@ min-cluster-survivors = 3
 frequency-tolerance = 15
 distance-threshold = 1
 panic-threshold = 10
-startup-panic-threshold = { forward = 0, backward = 1 }
-
+startup-panic-threshold = { forward = 600, backward = 0 }
