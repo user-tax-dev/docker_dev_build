@@ -6,10 +6,10 @@ alias gl=glances
 alias ls=exa
 alias vi=nvim
 alias vim=nvim
+alias rg="rg -L"
 
 export EDITOR=nvim
 export TERM=xterm-256color
-
 
 export PATH="$HOME/.bin:$BUN_INSTALL/bin:$HOME/.yarn/bin:$PATH"
 
