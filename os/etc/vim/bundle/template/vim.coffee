@@ -11,5 +11,5 @@
   await $'pwd'
 
 if process.argv[1] == decodeURI (new URL(import.meta.url)).pathname
-  await main()
+  console.log await main()
   process.exit()
