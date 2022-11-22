@@ -3,10 +3,10 @@
 > zx/globals:
   @rmw/thisdir
 
-ROOT = thisdir(import.meta)
-cd ROOT
+< default main = =>
+  ROOT = thisdir(import.meta)
+  cd ROOT
 
-< main = =>
   await $"ls #{ROOT}"
   await $'pwd'
 
