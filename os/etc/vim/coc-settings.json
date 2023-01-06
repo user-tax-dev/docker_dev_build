@@ -32,6 +32,7 @@
   "stylusSupremacy.sortProperties": "alphabetical",
   "vetur.format.defaultFormatter.css": "stylus-supremacy",
   "vetur.validation.style": false,
+  "vetur.ignoreProjectWarning": true,
   "rust-analyzer.updates.channel": "nightly",
   "rust-analyzer.cargo.loadOutDirsFromCheck": true,
   "rust-analyzer.procMacro.enable": true,
