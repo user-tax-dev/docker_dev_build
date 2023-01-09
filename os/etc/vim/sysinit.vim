@@ -136,9 +136,9 @@ let g:formatters_vlang= ['vfmt']
 let g:formatdef_nim = '"nimpretty"'
 let g:formatters_nim= ['nim']
 
-let g:rustfmt_autosave = 1
-let g:rust_recommended_style = 0
-let g:rustfmt_options='--config-path ~/.config/rustfmt/rustfmt.toml'
+"let g:rustfmt_autosave = 1
+"let g:rust_recommended_style = 0
+"let g:rustfmt_options='--config-path ~/.config/rustfmt/rustfmt.toml'
 
 
 "
@@ -366,8 +366,9 @@ let g:ctrlsf_auto_focus = {
     \ "duration_less_than": 1000
     \ }
 
-nmap tt :NERDTreeToggle<cr>
 nmap mr :MRU<cr>
+nmap tt :NERDTreeToggle<cr>
+nmap cp :!pbcopy < %<cr>
 "nmap tl :TlistToggle<cr>
 "nmap bn :bn<cr>
 "nmap bp :bp<cr>
